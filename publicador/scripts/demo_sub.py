@@ -14,4 +14,4 @@ def leemensaje_clbk(msg):
 
 
 if __name__ == '__main__':
-    pass
+    suscriber()
