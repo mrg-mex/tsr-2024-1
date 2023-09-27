@@ -47,20 +47,22 @@ class TB3CmdListener():
     def _on_tb3cmd_clbk(self, cmd):
         comando = cmd.comando  # 'Avanza' != 'avanza'
         robot_state = Twist()
-
+        rospy.loginfo(f"Recibi comando '{cmd.comando} -> valor{cmd.valor}'")
         if comando.lower() in self._commands:
             if comando == 'detente':
-                robot_state.linear.x = 0
-                robot_state.angular.z = 0
+                self._curr_lin_vel = 0
+                self._curr_ang_vel = 0
             elif comando == 'avanza':
                 valor = cmd.valor
                 self._check_lin_vel_limit(valor)
-                robot_state.linear.x = valor
+                self._curr_lin_vel = valor
             else:
                 valor = cmd.valor
                 self._check_ang_vel_limit(valor)
-                robot_state.angular.z = valor    
+                self._curr_ang_vel = valor
 
+            robot_state.angular.z = self._curr_ang_vel
+            robot_state.linear.x = self._curr_lin_vel
             self._cmd_vel_pub.publish(robot_state)
         else:
             rospy.logwarn(f"El comando '{comando}' no es reconocido. Comandos válidos {self._commands}")
