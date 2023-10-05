@@ -1,0 +1,7 @@
+tb3_ctrl:
+  burger:
+    max_vel_ang: 2.84
+    max_vel_lin: 0.22
+  waffle:
+    max_vel_ang: 1.82
+    max_vel_lin: 0.26
