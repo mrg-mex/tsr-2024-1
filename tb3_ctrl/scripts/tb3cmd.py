@@ -11,10 +11,18 @@ class TB3CmdListener():
         self._curr_lin_vel = 0
         self._curr_ang_vel = 0
         self._commands = ['avanza', 'gira', 'detente']
-        self.WAFFLE_MAX_VEL_LIN = 0.26 # m/seg
-        self.WAFFLE_MAX_VEL_ANG = 1.82 # rad/seg
+        self._model = self.get_parameter('/tb3_model', 'waffle')
+        self.WAFFLE_MAX_VEL_LIN = self.get_parameter(f'/tb3_ctrl/{self._model}/max_vel_lin', 0.0)
+        self.WAFFLE_MAX_VEL_ANG = self.get_parameter(f'/tb3_ctrl/{self._model}/max_vel_ang', 0.0)
         self._cmd_vel_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
         self._tb3cmd_sub = rospy.Subscriber('/tb3cmd_listener',TB3CmdMsg, self._on_tb3cmd_clbk)
+        rospy.loginfo(f"Inicializado 'tb3_cmd' con modelo:'{self._model}' [{self.WAFFLE_MAX_VEL_LIN},{self.WAFFLE_MAX_VEL_ANG}]")
+
+    def get_parameter(self, param_name, default_value=None):
+        if rospy.has_param(param_name):
+            return rospy.get_param(param_name)
+        
+        return default_value
 
     def _constrains(self, input_val, high_val, low_val = 0 ):
         if input_val < low_val:
