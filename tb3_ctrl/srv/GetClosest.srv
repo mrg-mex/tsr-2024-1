@@ -1,0 +1,7 @@
+# Request (peticion) al servicio
+---
+# Response (respuesta) del servicio
+string closest_object
+float32 distance
+bool success
+string status_message

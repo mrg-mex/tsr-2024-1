@@ -1,0 +1,7 @@
+# Request (peticion) al servicio
+string object_name
+---
+# Response (respuesta) del servicio
+float64 distance
+bool success
+string status_message
