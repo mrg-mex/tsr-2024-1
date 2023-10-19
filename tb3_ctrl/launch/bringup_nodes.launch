@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="modelo" default="robotron"/>
+    <arg name="model" default="$(env TURTLEBOT3_MODEL)"/>
+    <arg name="use_gazebo" default="false"/>
+    <param name="modelo" value="$(arg modelo)"/>
+    <param name="tb3_model" value="$(arg model)"/>
+    <!--
+    <param name="tb3_ctrl/$(arg model)/max_vel_lin" value="0.001" />
+    <param name="tb3_ctrl/$(arg model)/max_vel_ang" value="0.001"/>
+    -->
+    <param name="tb3_ctrl_params"  textfile="$(find tb3_ctrl)/config/tb3cmd_params.yaml"/>
+    <param name="tb3cmd" type="yaml" command="cat $(find tb3_ctrl)/config/tb3cmd_params.yaml" />
+    <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_empty_world.launch" if="$(arg use_gazebo)" />
+    <!--
+        <param name="robot_description" command="cat ($find robot_description)/urdf/robot_urdf.urdf"/>
+    -->    
+    
+    <rosparam command="load" file="$(find tb3_ctrl)/config/tb3cmd_params.yaml"/>
+    
+    <node name="tb3cmd" pkg="tb3_ctrl" type="tb3cmd.py" output="screen"/>
+    <!--
+    <node name="tb3monitor" pkg="tb3_ctrl" type="tb3monitor.py" output="log" if="$(arg use_gazebo)"  />
+    -->    
+    <node name="tb3monitor" pkg="tb3_ctrl" type="tb3monitor.py"  output="log" respawn="true" respawn_delay="10">
+
+    </node>    
+    <!--
+    <node name="tb3comm1" pkg="tb3_ctrl" type="tb3cmd.py" output="screen" ns="tb3utils"/>
+    <node name="tb3comm2" pkg="tb3_ctrl" type="tb3cmd.py" output="screen" ns="tb3utils"/>
+    -->
+
+</launch>

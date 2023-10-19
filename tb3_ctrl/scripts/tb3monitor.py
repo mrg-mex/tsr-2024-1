@@ -59,9 +59,27 @@ class DistanceMonitor():
         self._pose2d.y = odom_msg.pose.pose.position.y
         self._pose2d.theta = 0.0
 
+    def is_world_empty(self):
+        emp_cond = False
+        if not self._landmarks:
+            emp_cond = True
+        else:
+            obj_count = 0
+            for model, (x,y) in self._landmarks.items():
+                if model not in self._excluded_objs:
+                    obj_count = obj_count + 1
+
+            if obj_count == 0:
+                emp_cond = True
+
+        return emp_cond
+
     def get_closest_srv(self, msg):
         srv_resp = GetClosestResponse()
-        if len(self._landmarks) == 0:
+
+        self.refresh_ladmarks()
+
+        if self.is_world_empty():
             srv_resp.closest_object = ''
             srv_resp.distance = 0.0
             srv_resp.success = False
@@ -75,7 +93,8 @@ class DistanceMonitor():
             if model_name not in self._excluded_objs:
                 dx = x - self._pose2d.x
                 dy = y - self._pose2d.y
-                sqrt_dist = (dx * dx) + (dy * dy)
+                # sqrt_dist = (dx^2) + (dy^2)
+                sqrt_dist = math.hypot(dx, dy)
                 if closest_distance == -1 or sqrt_dist < closest_distance:
                     closest_distance = sqrt_dist
                     closest_ladmark = model_name
@@ -89,6 +108,7 @@ class DistanceMonitor():
 
     def get_distance_srv(self, srv_req_msg):
         srv_resp = GetDistanceResponse()
+        self.refresh_ladmarks()
         if srv_req_msg.object_name not in self._landmarks:
             srv_resp.distance = 0.0
             srv_resp.success = False
@@ -97,7 +117,9 @@ class DistanceMonitor():
         x, y = self._landmarks[srv_req_msg.object_name]
         dx = x - self._pose2d.x
         dy = y - self._pose2d.y
-        obj_dist = math.sqrt((dx * dx) + (dy * dy))
+        # obj_dist = math.sqrt((dx * dx) + (dy * dy))
+        obj_dist = math.hypot(dx, dy)
+
 
         srv_resp.distance = obj_dist
         srv_resp.success = True
