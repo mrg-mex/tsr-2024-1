@@ -15,8 +15,8 @@ class Go2GoalNode():
         self._goal = Pose2D()
         self._tol_err_yaw = 0.0872665 # rad
         self._tol_err_dist = 0.05
-        self._lin_vel = 0.01
-        self._ang_vel = 0.02
+        self._lin_vel = 0.1
+        self._ang_vel = 0.1
         self._robot_state = 'STOP' # ['STOP', 'GO', 'TWIST', 'GOAL']
         self._goal_reached = False
         self._odom_sub = rospy.Subscriber('/odom', Odometry, self._on_odom_feedback)
@@ -50,9 +50,9 @@ class Go2GoalNode():
 
         if math.fabs(goal_yaw) > self._tol_err_yaw:
             ang_vel = self._ang_vel if goal_yaw > 0 else -self._ang_vel
-            self._send_cmd_robot(vel_ang=ang_vel)
+            self._send_cmd_robot(vel_ang=ang_vel, robot_state='TWIST')
         else:
-            self._robot_state == 'GO'
+            self._robot_state = 'GO'
 
     def _go_straight(self):
         goal_yaw, dist_to_goal = self._compute_goal()
@@ -60,7 +60,7 @@ class Go2GoalNode():
         if self._robot_state not in ['STOP', 'GOAL']:
             if dist_to_goal > self._tol_err_dist:
                 # muevete hacia 'GOAL'
-                self._send_cmd_robot(vel_ang=self._ang_vel, vel_lin=self._lin_vel)
+                self._send_cmd_robot( vel_lin=self._lin_vel, robot_state='GO')
             else:
                 self._robot_state = 'GOAL'
                 rospy.loginfo(f'GOAL! Yaw err: {goal_yaw:.6f} rads, dist to go: {dist_to_goal:.6f} m.')
@@ -70,7 +70,8 @@ class Go2GoalNode():
             if math.fabs(goal_yaw) > self._tol_err_yaw:
                 self._robot_state = 'TWIST'
                 
-    def _send_cmd_robot(self, vel_ang=0.0, vel_lin=0.0):
+    def _send_cmd_robot(self, vel_ang=0.0, vel_lin=0.0, robot_state='STOP'):
+        self._robot_state = robot_state
         cmd_msg = Twist()
         cmd_msg.angular.z = vel_ang
         cmd_msg.linear.x = vel_lin
