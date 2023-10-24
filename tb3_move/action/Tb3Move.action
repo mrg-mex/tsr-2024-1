@@ -1,0 +1,18 @@
+# Goal
+std_msgs/Header header
+geometry_msgs/Pose2D target
+---
+# Result
+std_msgs/Header header
+geometry_msgs/Pose2D final_pose
+string robot_state
+float32 distance_error
+float32 phi_error
+bool succeess
+string result_message
+---
+# Feedback
+geometry_msgs/Pose2D feedback_pose
+string robot_state
+float32 distance_error
+float32 phi_error
