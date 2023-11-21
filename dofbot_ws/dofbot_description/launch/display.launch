@@ -1,0 +1,26 @@
+<launch>
+  <arg
+    name="model" />
+  <param
+    name="robot_description"
+    textfile="$(find dofbot_description)/urdf/dofbot_arm.xacro" />
+  <node
+    name="joint_state_publisher_gui"
+    pkg="joint_state_publisher_gui"
+    type="joint_state_publisher_gui" />
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+
+  <!--Load and launch the joint trajectory controller-->
+	<rosparam file ="$(find dofbot_description)/config/joint_trajectory_controller.yaml" command="load"/>
+	<node name= "controller_spawner" pkg= "controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller robot_arm_controller"/>
+	<!-- Robot State Publisher for TF of each joint: publishes all the current states of the joint, then RViz can visualize -->
+	
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find dofbot_description)/rviz/dofbot.rviz" />
+</launch>
