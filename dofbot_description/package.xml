@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>dofbot_description</name>
+  <version>0.1.1</version>
+  <description>ROS Noetic Package for Yahboom Dofbot description files</description>
+  <license>Apache 2.0</license>
+
+  <maintainer email="rivascf@gmail.com">frivas</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>urdf</depend>
+  <depend>xacro</depend>
+
+</package>
