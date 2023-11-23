@@ -31,6 +31,12 @@ class TB3ActionClient():
         state = self._action_client.get_state()
         rospy.loginfo(f"Goal [{self.get_state_name(state)}]")
 
+    def _on_done(self):
+        pass
+
+    def _on_feedback(self):
+        pass
+
     def get_state_name(self, state_code):
         state_name = ''
         if state_code == 0: state_name = 'PENDING'

@@ -1,45 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <robot name="dofbot_arm">
     <material name="eerie_black">
-        <color rgba="0.1294117647058824 0.1450980392156863 0.1607843137254902 1.0"/>
+        <color rgba="0.1294117647058824 0.1450980392156863 0.1607843137254902 1.0" />
     </material>
     <material name="pigment_green">
-        <color rgba="0 0.627450980392157 0.235294117647059 1.0"/>
+        <color rgba="0 0.627450980392157 0.235294117647059 1.0" />
     </material>
     <material name="oxford_blue">
-        <color rgba="0.1058823529411765 0.1490196078431373 0.2196078431372549 1.0"/>
+        <color rgba="0.1058823529411765 0.1490196078431373 0.2196078431372549 1.0" />
     </material>
     <material name="yinmn_blue">
-        <color rgba="0.2549019607843137 0.3529411764705882 0.4666666666666667 1.0"/>
+        <color rgba="0.2549019607843137 0.3529411764705882 0.4666666666666667 1.0" />
     </material>
     <material name="silver_lake_blue">
-        <color rgba="0.4666666666666667 0.5529411764705882 0.6627450980392157 1.0"/>
+        <color rgba="0.4666666666666667 0.5529411764705882 0.6627450980392157 1.0" />
     </material>
     <!--Dofbot Arm Base Link-->
     <link name="base_link">
         <visual>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
             <geometry>
-                <mesh filename="package://dofbot_description/meshes/dofbot/visual/base_link.STL"/>
+                <mesh filename="package://dofbot_description/meshes/dofbot/visual/base_link.STL" />
             </geometry>
-            <material name="eerie_black"/>
+            <material name="eerie_black" />
         </visual>
         <collision>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
             <geometry>
-                <mesh filename="package://dofbot_description/meshes/dofbot/visual/base_link.STL"/>
+                <mesh filename="package://dofbot_description/meshes/dofbot/visual/base_link.STL" />
             </geometry>
         </collision>
         <inertial>
-            <origin xyz="-0.0304416859098744 4.23384368655101E-05 0.0448234503408059" rpy="0 0 0"/>
-            <mass value="1.0754239466482"/>
-            <inertia
-                    ixx="0.0208831789264125"
-                    ixy="2.4618093127858E-06"
-                    ixz="0.00616019290028669"
-                    iyy="0.0265621377486244"
-                    iyz="-1.10079499865282E-06"
-                    izz="0.0129535610833954"/>
+            <origin xyz="-0.0304416859098744 4.23384368655101E-05 0.0448234503408059" rpy="0 0 0" />
+            <mass value="1.0754239466482" />
+            <inertia ixx="0.0208831789264125" ixy="2.4618093127858E-06" ixz="0.00616019290028669" iyy="0.0265621377486244" iyz="-1.10079499865282E-06" izz="0.0129535610833954" />
         </inertial>
     </link>
     <!-- Dofbot Arm Link 01 -->
@@ -52,14 +46,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://dofbot_description/meshes/dofbot/visual/arm_link1.STL"/>
+                <mesh filename="package://dofbot_description/meshes/dofbot/visual/arm_link1.STL" />
             </geometry>
-            <material name="pigment_green"/>
+            <material name="pigment_green" />
         </visual>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://dofbot_description/meshes/dofbot/visual/arm_link1.STL"/>
+                <mesh filename="package://dofbot_description/meshes/dofbot/visual/arm_link1.STL" />
             </geometry>
         </collision>
     </link>
@@ -83,7 +77,7 @@
             <geometry>
                 <mesh filename="package://dofbot_description/meshes/dofbot/visual/arm_link2.STL" />
             </geometry>
-            <material name="pigment_green"/>
+            <material name="pigment_green" />
         </visual>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -112,7 +106,7 @@
             <geometry>
                 <mesh filename="package://dofbot_description/meshes/dofbot/visual/arm_link3.STL" />
             </geometry>
-            <material name="pigment_green"/>
+            <material name="pigment_green" />
         </visual>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -141,7 +135,7 @@
             <geometry>
                 <mesh filename="package://dofbot_description/meshes/dofbot/visual/arm_link4.STL" />
             </geometry>
-            <material name="pigment_green"/>
+            <material name="pigment_green" />
         </visual>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -170,7 +164,7 @@
             <geometry>
                 <mesh filename="package://dofbot_description/meshes/dofbot/visual/arm_link5.STL" />
             </geometry>
-            <material name="eerie_black"/>
+            <material name="eerie_black" />
         </visual>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -200,7 +194,7 @@
             <geometry>
                 <mesh filename="package://dofbot_description/meshes/dofbot/visual/rgrip_finger1.STL" />
             </geometry>
-            <material name="yinmn_blue"/>
+            <material name="yinmn_blue" />
         </visual>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -230,7 +224,7 @@
             <geometry>
                 <mesh filename="package://dofbot_description/meshes/dofbot/visual/rgrip_finger2.STL" />
             </geometry>
-            <material name="oxford_blue"/>
+            <material name="oxford_blue" />
         </visual>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -260,7 +254,7 @@
             <geometry>
                 <mesh filename="package://dofbot_description/meshes/dofbot/visual/rgrip_finger3.STL" />
             </geometry>
-            <material name="silver_lake_blue"/>
+            <material name="silver_lake_blue" />
         </visual>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -290,7 +284,7 @@
             <geometry>
                 <mesh filename="package://dofbot_description/meshes/dofbot/visual/lgrip_finger1.STL" />
             </geometry>
-            <material name="yinmn_blue"/>
+            <material name="yinmn_blue" />
         </visual>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -320,7 +314,7 @@
             <geometry>
                 <mesh filename="package://dofbot_description/meshes/dofbot/visual/lgrip_finger2.STL" />
             </geometry>
-            <material name="oxford_blue"/>
+            <material name="oxford_blue" />
         </visual>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -350,7 +344,7 @@
             <geometry>
                 <mesh filename="package://dofbot_description/meshes/dofbot/visual/lgrip_finger3.STL" />
             </geometry>
-            <material name="silver_lake_blue"/>
+            <material name="silver_lake_blue" />
         </visual>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -371,30 +365,143 @@
     <!-- Mono - camera sensor -->
     <link name="mono_link">
         <inertial>
-            <origin xyz="5.8458E-05 0.0095015 -0.0014824" rpy="0 0 0"/>
-            <mass value="0.0097589"/>
-            <inertia ixx="3.3488E-06" ixy="1.3667E-08" ixz="6.4235E-09" iyy="1.8662E-06" iyz="-1.0265E-07"
-                     izz="2.5696E-06"/>
+            <origin xyz="5.8458E-05 0.0095015 -0.0014824" rpy="0 0 0" />
+            <mass value="0.0097589" />
+            <inertia ixx="3.3488E-06" ixy="1.3667E-08" ixz="6.4235E-09" iyy="1.8662E-06" iyz="-1.0265E-07" izz="2.5696E-06" />
         </inertial>
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://dofbot_description/meshes/sensor/visual/mono_link.STL"/>
+                <mesh filename="package://dofbot_description/meshes/sensor/visual/mono_link.STL" />
             </geometry>
-            <material name="oxford_blue"/>
+            <material name="oxford_blue" />
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://dofbot_description/meshes/sensor/visual/mono_link.STL"/>
+                <mesh filename="package://dofbot_description/meshes/sensor/visual/mono_link.STL" />
             </geometry>
         </collision>
     </link>
     <joint name="mono_joint" type="fixed">
-        <origin xyz="-0.0481 -0.05145 -0.0022" rpy="1.5708 0 0"/>
-        <parent link="arm_link_04"/>
-        <child link="mono_link"/>
+        <origin xyz="-0.0481 -0.05145 -0.0022" rpy="1.5708 0 0" />
+        <parent link="arm_link_04" />
+        <child link="mono_link" />
     </joint>
-
-
+    <transmission name="trans_arm_joint_01">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_joint_01">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_joint_01_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_arm_joint_02">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_joint_02">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_joint_02_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_arm_joint_03">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_joint_03">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_joint_03_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_arm_joint_04">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_joint_04">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_joint_04_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_arm_joint_05">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_joint_05">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_joint_05_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_grip_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="grip_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="grip_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_rfinger_joint_01">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="rfinger_joint_01">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="rfinger_joint_01_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_rfinger_joint_02">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="rfinger_joint_02">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="rfinger_joint_02_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_lfinger_grip_joint_01">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="lfinger_grip_joint_01">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="lfinger_grip_joint_01_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_lfinger_grip_joint_02">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="lfinger_grip_joint_02">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="lfinger_grip_joint_02_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_lfinger_grip_joint_03">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="lfinger_grip_joint_03">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="lfinger_grip_joint_03_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
 </robot>
+
